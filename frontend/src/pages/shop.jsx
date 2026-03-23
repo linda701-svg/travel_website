@@ -55,8 +55,32 @@ const Shop = () => {
     { label: 'Uncategorized', value: 'Uncategorized' },
   ];
 
+  // Added logic per user request to handle Add to Cart message without the login alert
+  const [toastMsg, setToastMsg] = useState('');
+
+  const handleAddToCart = (product) => {
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+      addToCart(product, false);
+    }
+    setToastMsg('Successfully added to cart');
+    setTimeout(() => setToastMsg(''), 3000);
+  };
+
   return (
     <div>
+      {/* Toast Notification */}
+      {toastMsg && (
+        <div style={{
+          position: 'fixed', top: '20px', right: '20px', zIndex: 9999,
+          background: '#16a34a', color: 'white', padding: '15px 25px', 
+          borderRadius: '8px', boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+          fontWeight: '600', fontSize: '15px', display: 'flex', alignItems: 'center', gap: '10px'
+        }}>
+          <i className="fa fa-check-circle"></i> {toastMsg}
+        </div>
+      )}
+
       {/* Banner */}
       <div id="site-banner" style={{ backgroundImage: `url(https://tourpress.b-cdn.net/wp-content/uploads/2020/04/optimised-banner.jpg)` }}>
         <div className="banner-content">
@@ -117,7 +141,7 @@ const Shop = () => {
                             )}
                             <span className="shop-price-now">{product.currencySymbol}{product.price.toFixed(2)}</span>
                           </div>
-                          <button onClick={() => addToCart(product, false)} className="shop-add-btn">
+                          <button onClick={() => handleAddToCart(product)} className="shop-add-btn">
                             Add to cart
                           </button>
                         </div>
