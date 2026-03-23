@@ -1,0 +1,113 @@
+/* Modern Gallery Styling */
+.modern-gallery-wrapper {
+  padding: 80px 0;
+  background-color: #f7f9fc;
+  min-height: 80vh;
+}
+
+.gallery-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.gallery-heading h2 {
+  font-size: 36px;
+  font-weight: 800;
+  color: #1a2b49;
+  margin-bottom: 15px;
+}
+
+.gallery-heading p {
+  font-size: 16px;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.modern-filter-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 50px;
+}
+
+.modern-filter-btn {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modern-filter-btn:hover {
+  background: #f1f5f9;
+  color: #1a2b49;
+}
+
+.modern-filter-btn.active {
+  background: #3ec1d5;
+  color: #ffffff;
+  border-color: #3ec1d5;
+  box-shadow: 0 4px 15px rgba(62, 193, 213, 0.3);
+}
+
+.modern-gallery-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.modern-gallery-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.modern-gallery-card:hover .modern-gallery-img {
+  transform: scale(1.08);
+}
+
+.modern-gallery-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(26,43,73,0.9) 0%, rgba(26,43,73,0) 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 25px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modern-gallery-card:hover .modern-gallery-overlay {
+  opacity: 1;
+}
+
+.modern-gallery-title {
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.modern-gallery-card:hover .modern-gallery-title {
+  transform: translateY(0);
+}
+
+.modern-gallery-title:hover {
+  color: #3ec1d5;
+}

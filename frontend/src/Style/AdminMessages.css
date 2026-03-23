@@ -1,0 +1,63 @@
+/* AdminMessages.css */
+.admin-messages-container {
+    padding: 30px;
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 60px);
+    font-size: 16px;
+}
+
+.admin-messages-container h2 {
+    color: #343a40;
+    margin-bottom: 30px;
+}
+
+.messages-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.message-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid #17a2b8;
+    /* Cyan accent */
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.sender-info h4 {
+    margin: 0 0 5px 0;
+    color: #343a40;
+    font-size: 18px;
+}
+
+.sender-email {
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.sender-phone {
+    color: #adb5bd;
+}
+
+.message-date {
+    font-size: 14px;
+    color: #adb5bd;
+}
+
+.message-body p {
+    margin: 0;
+    color: #495057;
+    line-height: 1.6;
+    font-size: 16px;
+}

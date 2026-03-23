@@ -1,0 +1,152 @@
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f7f6;
+    padding: 2rem;
+}
+
+.payment-form-wrapper {
+    max-width: 480px;
+    width: 100%;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.payment-title {
+    font-size: 26px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.payment-subtitle {
+    text-align: center;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+}
+
+.order-total-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ecf0f1;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    font-size: 18px;
+}
+
+.order-total-summary .total-amount {
+    font-weight: 700;
+    font-size: 22px;
+    color: #2c3e50;
+}
+
+.payment-form .form-group {
+    margin-bottom: 20px;
+}
+
+.payment-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #34495e;
+    font-size: 14px;
+}
+
+.payment-form .form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #bdc3c7;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.payment-form .form-control:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.btn-pay-now {
+    width: 100%;
+    padding: 15px;
+    background-color: #27ae60;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+}
+
+.btn-pay-now:hover {
+    background-color: #2ecc71;
+}
+
+.btn-pay-now:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.error-message {
+    color: #e74c3c;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.secure-payment-badge {
+    text-align: center;
+    margin-top: 25px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
+
+.payment-method-info {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.payment-methods {
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.payment-method {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.payment-method:last-child {
+    border-bottom: none;
+}
+
+.payment-method input[type="radio"] {
+    margin-right: 15px;
+}
+
+.payment-method label {
+    margin: 0;
+    font-weight: 500;
+}
+
+.paypal-button-container {
+    margin-top: 20px;
+    z-index: 0; /* To prevent it from overlapping other elements */
+}

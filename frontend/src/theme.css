@@ -1,0 +1,322 @@
+/* General Theme Styles */
+:root {
+    --primary-color: #3ec1d5;
+    --secondary-color: #2ecc71;
+    --dark-color: #34495e;
+    --light-color: #ecf0f1;
+    --text-color: #555;
+    --heading-color: #333;
+}
+
+body {
+    color: var(--text-color);
+}
+
+.theme {
+    color: var(--primary-color) !important;
+}
+
+.theme1 {
+    color: var(--secondary-color) !important;
+}
+
+.bg-theme {
+    background-color: var(--primary-color) !important;
+}
+
+.white {
+    color: white !important;
+}
+
+/* Buttons */
+.nir-btn {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 1px solid var(--primary-color);
+}
+
+.nir-btn:hover {
+    background: #fff;
+    color: var(--primary-color);
+}
+
+.nir-btn-black {
+    background: var(--dark-color);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 1px solid var(--dark-color);
+}
+
+.nir-btn-black:hover {
+    background: #fff;
+    color: var(--dark-color);
+}
+
+.nir-btn-teal {
+    background: #1abc9c;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 1px solid #1abc9c;
+}
+
+.nir-btn-teal:hover {
+    background: #fff;
+    color: #1abc9c;
+}
+
+
+/* Section Title */
+.section-title h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--heading-color);
+}
+.section-title p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* Header */
+.main_header_area {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.header_menu .navbar-brand img {
+    max-height: 40px;
+}
+.header_menu .nav-link {
+    font-weight: 500;
+}
+
+/* Banner */
+.banner {
+    height: 70vh;
+}
+
+.slide-inner {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+}
+
+.swiper-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.dot-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+/* Form Main */
+.form-main {
+    margin-top: -80px;
+    position: relative;
+    z-index: 10;
+}
+.form-content {
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Trending Item / Cards */
+.trend-item {
+    transition: all 0.3s ease;
+}
+.trend-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+.trend-image .color-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    border-radius: 5px;
+}
+.trend-content {
+    position: relative;
+}
+
+/* Box Shadow utility */
+.box-shadow {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* Footer */
+footer.bg-dark {
+    background-color: var(--dark-color) !important;
+}
+
+/* New styles for tour cards */
+.tour-post {
+    display: flex;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.tour-post.tour-post-full-width {
+    flex-direction: row;
+}
+
+.tour-post figure {
+    position: relative;
+    flex: 0 0 40%; /* Adjust as needed */
+    max-width: 40%; /* Adjust as needed */
+    overflow: hidden;
+}
+
+.tour-post figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tour-meta {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1;
+}
+
+.tour-meta-icon {
+    display: inline-flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-right: 5px;
+    font-size: 14px;
+}
+
+.tour-meta-icon svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    /* Ensure the SVG strokes are white for visibility */
+    filter: invert(100%);
+}
+.tour-meta-icon span {
+    color: white;
+}
+
+.sunlight {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.sunlight i {
+    margin-right: 5px;
+}
+
+.offer-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.offer-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--heading-color);
+}
+
+.offer-content h3 a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.rating {
+    margin-bottom: 10px;
+}
+
+.rating .fa-star-o {
+    color: #ccc;
+}
+
+.rating .fa-star-o.rated {
+    color: #FFD700; /* Gold color for rated stars */
+}
+
+.offer-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.discount-label {
+    background-color: #ff4500; /* OrangeRed */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.tour-price {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+.read-more {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 3px;
+    text-decoration: none;
+    align-self: flex-start;
+    transition: background-color 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #28a745; /* A slightly darker green for hover */
+    color: #fff;
+}

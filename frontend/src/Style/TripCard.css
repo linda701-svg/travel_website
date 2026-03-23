@@ -1,0 +1,143 @@
+.trip-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.trip-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+
+.trip-card-image-content {
+  position: relative;
+}
+
+.trip-card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  /* Removes bottom space */
+}
+
+/* Action Buttons Container */
+.card-actions {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  /* Space between buttons */
+  opacity: 0;
+  transform: translateY(-5px);
+  transition: all 0.2s ease-in-out;
+}
+
+.trip-card:hover .card-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Common Button Styles */
+.delete-trip-btn,
+.view-trip-btn {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s;
+  text-decoration: none;
+  /* For Link */
+}
+
+/* View Button Specifics */
+.view-trip-btn {
+  background-color: rgba(0, 123, 255, 0.9);
+  /* Blue */
+  color: white;
+}
+
+.view-trip-btn:hover {
+  background-color: #0056b3;
+  transform: scale(1.1);
+  color: white;
+}
+
+/* Delete Button Specifics */
+.delete-trip-btn {
+  background-color: rgba(220, 53, 69, 0.9);
+  /* Red */
+  color: white;
+}
+
+.delete-trip-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.1);
+}
+
+
+.trip-card-content {
+  padding: 15px;
+  flex-grow: 1;
+}
+
+.trip-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.trip-card-header h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+.trip-company {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.trip-location {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.trip-location svg {
+  margin-right: 8px;
+  color: #888;
+}
+
+.trip-details-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3f51b5;
+  /* Blue color from the image */
+  padding: 10px 15px;
+  color: #fff;
+}
+
+.trip-date,
+.trip-price {
+  font-size: 13px;
+  font-weight: 500;
+}
