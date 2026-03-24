@@ -17,7 +17,7 @@ const AdminTrips = () => {
       }
 
       // Fetch all tours by setting a large limit
-      const response = await fetch('http://localhost:5000/api/v1/tours?limit=1000', {
+      const response = await fetch('https://travel-website-hfqu.onrender.com/api/v1/tours?limit=1000', {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
@@ -39,7 +39,7 @@ const AdminTrips = () => {
         location: tour.location ? `${tour.location.city}, ${tour.location.country}` : 'N/A',
         date: tour.availability.startDate,
         price: tour.price,
-        image: tour.image && tour.image.startsWith('http') ? tour.image : `http://localhost:5000${tour.image}`,
+        image: tour.image && tour.image.startsWith('http') ? tour.image : `https://travel-website-hfqu.onrender.com${tour.image}`,
       }));
       setTrips(formattedTrips);
     } catch (err) {
@@ -54,7 +54,7 @@ const AdminTrips = () => {
     if (window.confirm('Are you sure you want to delete this trip?')) {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:5000/api/v1/tours/${id}`, {
+        const response = await fetch(`https://travel-website-hfqu.onrender.com/api/v1/tours/${id}`, {
           method: 'DELETE',
           headers: {
             'Authorization': `Bearer ${token}`,

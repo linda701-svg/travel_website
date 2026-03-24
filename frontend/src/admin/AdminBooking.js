@@ -23,7 +23,7 @@ const AdminBooking = () => {
   const fetchBookings = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/v1/bookings', {
+      const response = await axios.get('https://travel-website-hfqu.onrender.com/api/v1/bookings', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setAllBookings(response.data.data);
@@ -43,7 +43,7 @@ const AdminBooking = () => {
     if (window.confirm('Are you sure you want to remove this booking?')) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:5000/api/v1/bookings/${id}`, {
+        await axios.delete(`https://travel-website-hfqu.onrender.com/api/v1/bookings/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setAllBookings(allBookings.filter(booking => booking._id !== id));

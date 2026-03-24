@@ -213,7 +213,7 @@ const NewTripForm = ({ setShowNewTripForm = () => { }, fetchTours = () => { }, e
         }
       };
 
-      const response = await axios.put(`http://localhost:5000/api/v1/tours/${existingTour._id}`, formData, config);
+      const response = await axios.put(`https://travel-website-hfqu.onrender.com/api/v1/tours/${existingTour._id}`, formData, config);
 
       if (response.data.success) {
         setFormMessage({ type: 'success', text: 'Trip updated successfully!' });
@@ -276,7 +276,7 @@ const NewTripForm = ({ setShowNewTripForm = () => { }, fetchTours = () => { }, e
         }
       };
 
-      const response = await axios.post('http://localhost:5000/api/v1/tours', formData, config);
+      const response = await axios.post('https://travel-website-hfqu.onrender.com/api/v1/tours', formData, config);
 
       if (response.data.success) {
         setFormMessage({ type: 'success', text: 'Trip added successfully!' });

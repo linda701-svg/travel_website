@@ -24,7 +24,7 @@ const AdminUser = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/v1/users');
+      const response = await axios.get('https://travel-website-hfqu.onrender.com/api/v1/users');
       setUsers(response.data.data);
     } catch (err) {
       setError(err.message);
@@ -40,7 +40,7 @@ const AdminUser = () => {
   const handleDeleteUser = async (id) => {
     try {
       const token = localStorage.getItem('token'); // Assuming you store token for auth
-      await axios.delete(`http://localhost:5000/api/v1/users/${id}`, {
+      await axios.delete(`https://travel-website-hfqu.onrender.com/api/v1/users/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -58,7 +58,7 @@ const AdminUser = () => {
   const handleToggleBlockUser = async (id) => {
     try {
       const token = localStorage.getItem('token'); // Assuming you store token for auth
-      const response = await axios.put(`http://localhost:5000/api/v1/users/${id}/block`, {}, {
+      const response = await axios.put(`https://travel-website-hfqu.onrender.com/api/v1/users/${id}/block`, {}, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -104,12 +104,12 @@ const AdminUser = () => {
       // The following code is a mock to simulate a successful API call.
       // TODO: Replace this with the actual API call once the backend endpoint is available.
       // The backend should handle a POST request to a URL like:
-      // `http://localhost:5000/api/v1/users/${userToReport._id}/report`
+      // `https://travel-website-hfqu.onrender.com/api/v1/users/${userToReport._id}/report`
       // and return the updated user object.
 
       /*
       // Original API call (currently failing with 404):
-      const response = await axios.post(`http://localhost:5000/api/v1/users/${userToReport._id}/report`,
+      const response = await axios.post(`https://travel-website-hfqu.onrender.com/api/v1/users/${userToReport._id}/report`,
         { reason: reportReason },
         {
           headers: {

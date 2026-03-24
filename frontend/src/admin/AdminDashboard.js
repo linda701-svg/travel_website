@@ -17,8 +17,8 @@ const AdminDashboard = () => {
         const headers = { Authorization: `Bearer ${token}` };
 
         const [toursRes, bookingsRes] = await Promise.all([
-          fetch('http://localhost:5000/api/v1/tours'),
-          fetch('http://localhost:5000/api/v1/bookings', { headers })
+          fetch('https://travel-website-hfqu.onrender.com/api/v1/tours'),
+          fetch('https://travel-website-hfqu.onrender.com/api/v1/bookings', { headers })
         ]);
 
         if (!toursRes.ok) throw new Error('Failed to fetch tours');
@@ -29,7 +29,7 @@ const AdminDashboard = () => {
 
         const processedTours = (toursData.data || []).map(tour => ({
           ...tour,
-          image: tour.image && tour.image.startsWith('http') ? tour.image : `http://localhost:5000${tour.image}`
+          image: tour.image && tour.image.startsWith('http') ? tour.image : `https://travel-website-hfqu.onrender.com${tour.image}`
         }));
         setTours(processedTours);
         setBookings(bookingsData.data || []);
@@ -153,7 +153,7 @@ const AdminDashboard = () => {
                     booking.items && booking.items[0] && booking.items[0].tourId && booking.items[0].tourId.image
                       ? (booking.items[0].tourId.image.startsWith('http')
                         ? booking.items[0].tourId.image
-                        : `http://localhost:5000${booking.items[0].tourId.image}`)
+                        : `https://travel-website-hfqu.onrender.com${booking.items[0].tourId.image}`)
                       : 'https://via.placeholder.com/50'
                   }
                   alt="Tour"

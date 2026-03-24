@@ -13,7 +13,7 @@ const ViewTour = () => {
     const fetchTour = async () => {
         try {
             setLoading(true);
-            const response = await fetch(`http://localhost:5000/api/v1/tours/${id}`);
+            const response = await fetch(`https://travel-website-hfqu.onrender.com/api/v1/tours/${id}`);
             const data = await response.json();
             if (data.success) {
                 setTour(data.data);
@@ -63,7 +63,7 @@ const ViewTour = () => {
                 {/* Banner Section */}
                 {tour.banner && (
                     <div className="tour-banner-preview">
-                        <img src={tour.banner.startsWith('http') ? tour.banner : `http://localhost:5000${tour.banner}`} alt="Tour Banner" />
+                        <img src={tour.banner.startsWith('http') ? tour.banner : `https://travel-website-hfqu.onrender.com${tour.banner}`} alt="Tour Banner" />
                         <span className="image-label">Banner Image</span>
                     </div>
                 )}
@@ -113,7 +113,7 @@ const ViewTour = () => {
                         <div className="gallery-preview-grid">
                             {tour.gallery.map((item, index) => (
                                 <div key={index} className="gallery-preview-item">
-                                    <img src={item.image.startsWith('http') ? item.image : `http://localhost:5000${item.image}`} alt={`Gallery ${index + 1}`} />
+                                    <img src={item.image.startsWith('http') ? item.image : `https://travel-website-hfqu.onrender.com${item.image}`} alt={`Gallery ${index + 1}`} />
                                 </div>
                             ))}
                         </div>

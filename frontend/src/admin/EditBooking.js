@@ -23,10 +23,10 @@ const EditBooking = () => {
       try {
         const token = localStorage.getItem('token');
         const [bookingRes, toursRes] = await Promise.all([
-          axios.get(`http://localhost:5000/api/v1/bookings/${id}`, {
+          axios.get(`https://travel-website-hfqu.onrender.com/api/v1/bookings/${id}`, {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get('http://localhost:5000/api/v1/tours'),
+          axios.get('https://travel-website-hfqu.onrender.com/api/v1/tours'),
         ]);
 
         const bookingData = bookingRes.data.data;
@@ -90,7 +90,7 @@ const EditBooking = () => {
         status: formData.status,
       };
 
-      await axios.put(`http://localhost:5000/api/v1/bookings/${id}`, payload, {
+      await axios.put(`https://travel-website-hfqu.onrender.com/api/v1/bookings/${id}`, payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
       navigate('/admin/booking'); // Navigate back to the bookings list
