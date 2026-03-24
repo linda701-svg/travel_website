@@ -9,6 +9,7 @@ const Tour = require('./models/Tour'); // Import Tour model to seed data (also r
 // Load environment variables
 dotenv.config();
 
+
 const app = express();
 const PORT = process.env.PORT || 5000;
 

@@ -26,7 +26,7 @@ const Tours = () => {
     const fetchTours = async () => {
       try {
         const query = new URLSearchParams(searchParams).toString();
-        const response = await fetch(`http://localhost:5000/api/v1/tours?${query}&page=${currentPage}&limit=${limit}`);
+        const response = await fetch(`/api/v1/tours?${query}&page=${currentPage}&limit=${limit}`);
         const data = await response.json();
         if (data.success) {
           setTours(data.data || []);

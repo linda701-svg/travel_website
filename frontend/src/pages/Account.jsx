@@ -28,7 +28,7 @@ const MyAccount = () => {
     setIsLoading(true);
     setMessage('');
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', loginData);
+      const response = await axios.post('/api/auth/login', loginData);
       if (response.data.success) {
         setMessage('Login successful!');
         const user = response.data.data;
@@ -52,7 +52,7 @@ const MyAccount = () => {
     setIsLoading(true);
     setMessage('');
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', signupData);
+      const response = await axios.post('/api/auth/register', signupData);
       if (response.data.success) {
         setMessage('Signup successful! You can now log in.');
         setSignupData({ name: '', email: '', password: '', role: 'user' });
