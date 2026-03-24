@@ -17,21 +17,24 @@ const TourDetail = () => {
   const [isReviewing, setIsReviewing] = useState(false);
   const [reviewMessage, setReviewMessage] = useState('');
 
-  useEffect(() => {
-    const fetchTourData = async () => {
-      try {
-        const [tourRes, reviewsRes] = await Promise.all([
-          fetch(`http://localhost:5000/api/v1/tours/${id}`).then(res => res.json()),
-          fetch(`http://localhost:5000/api/v1/reviews/tour/${id}`).then(res => res.json()),
-        ]);
-        if (tourRes.success) setTour(tourRes.data);
-        if (reviewsRes.success) setReviews(reviewsRes.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-    fetchTourData();
-  }, [id]);
+ useEffect(() => {
+  const fetchTourData = async () => {
+    try {
+
+      const [tourRes, reviewsRes] = await Promise.all([
+        axios.get(`/api/v1/tours/${id}`),
+        axios.get(`/api/v1/reviews/tour/${id}`),
+      ]);
+
+      
+      if (tourRes.data.success) setTour(tourRes.data.data);
+      if (reviewsRes.data.success) setReviews(reviewsRes.data.data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  fetchTourData();
+}, [id]);
 
   const handleInputChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
   const handleReviewInputChange = (e) => setReviewFormData({ ...reviewFormData, [e.target.name]: e.target.value });
@@ -66,7 +69,7 @@ const TourDetail = () => {
       deliveryFee: 0,
     };
     try {
-      const response = await axios.post('http://localhost:5000/api/v1/bookings', bookingData, {
+      const response = await axios.post('/api/v1/bookings', bookingData, {
         headers: { 'Content-Type': 'application/json' }
       });
       if (response.data.success) {
@@ -94,11 +97,11 @@ const TourDetail = () => {
     try {
       const token = localStorage.getItem('token');
       if (!token) { setReviewMessage('error:You must be logged in to post a review.'); setIsReviewing(false); return; }
-      const response = await axios.post('http://localhost:5000/api/v1/reviews', { tourId: id, rating: parseInt(reviewFormData.rating, 10), comment: reviewFormData.comment }, { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` } });
+      const response = await axios.post('/api/v1/reviews', { tourId: id, rating: parseInt(reviewFormData.rating, 10), comment: reviewFormData.comment }, { headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` } });
       if (response.data.success) {
         setReviewMessage('success:Review posted successfully!');
         setReviewFormData({ rating: 5, comment: '', author: '', email: '' });
-        const reviewsRes = await fetch(`http://localhost:5000/api/v1/reviews/tour/${id}`).then(res => res.json());
+        const reviewsRes = await fetch(`/api/v1/reviews/tour/${id}`).then(res => res.json());
         if (reviewsRes.success) setReviews(reviewsRes.data);
       }
     } catch (error) {
@@ -116,8 +119,8 @@ const TourDetail = () => {
       </div>
     );
   }
-
-  const bannerUrl = tour.banner && tour.banner.startsWith('http') ? tour.banner : `http://localhost:5000${tour.banner}`;
+const BACKEND_URL = "https://travel-website-hfqu.onrender.com";
+  const bannerUrl = tour.banner && tour.banner.startsWith('http') ? tour.banner : `${BACKEND_URL}${tour.banner}`;
   const [bookMsgType, bookMsgText] = bookingMessage.includes(':') ? bookingMessage.split(':') : ['', bookingMessage];
   const [revMsgType, revMsgText] = reviewMessage.includes(':') ? reviewMessage.split(':') : ['', reviewMessage];
 
@@ -250,7 +253,7 @@ const TourDetail = () => {
                 {tour.gallery.map((item, index) => (
                   <img
                     key={index}
-                    src={item.image && item.image.startsWith('http') ? item.image : `http://localhost:5000${item.image}`}
+                    src={item.image && item.image.startsWith('http') ? item.image : `${BACKEND_URL}${item.image}`}
                     alt={item.altText || `Gallery image ${index + 1}`}
                     className="td-gallery-img"
                   />
