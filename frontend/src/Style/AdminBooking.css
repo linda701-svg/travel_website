@@ -295,3 +295,66 @@
   color: white;
   border: none;
 }
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 992px) {
+  .status-card {
+    width: 48%; /* 2 cards per row on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .admin-booking-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .admin-booking-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .resync-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .status-card {
+    width: 100%; /* Full width on mobile */
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-bar .date-input-container {
+    width: 100%;
+  }
+
+  /* Force table scrollability */
+  .booking-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .booking-table {
+    min-width: 800px; /* Prevent table content from squeezing too much */
+  }
+
+  .booking-edit-form {
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .modal-buttons {
+    flex-direction: column;
+  }
+  
+  .modal-buttons button {
+    width: 100%;
+  }
+}

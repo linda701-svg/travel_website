@@ -61,3 +61,24 @@
     line-height: 1.6;
     font-size: 16px;
 }
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 768px) {
+    .admin-messages-container {
+        padding: 15px;
+    }
+
+    .message-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .message-date {
+        margin-top: 5px;
+    }
+
+    .sender-info h4 {
+        font-size: 1.1rem;
+    }
+}

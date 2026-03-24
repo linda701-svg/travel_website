@@ -176,3 +176,54 @@
 .gallery-preview-item:hover img {
     transform: scale(1.05);
 }
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 768px) {
+    .admin-view-container {
+        padding: 15px;
+    }
+
+    .admin-view-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .header-actions {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .edit-btn, .back-btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .admin-tour-card {
+        padding: 20px;
+    }
+
+    .tour-banner-preview {
+        height: 200px;
+    }
+
+    .tour-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-group.full-width {
+        grid-column: span 1;
+    }
+
+    .gallery-preview-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .tour-banner-preview {
+        height: 150px;
+    }
+}

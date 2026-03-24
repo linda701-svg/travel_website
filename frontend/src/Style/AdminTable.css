@@ -71,3 +71,17 @@
 .status-completed {
   background-color: #17a2b8; /* Info Blue */
 }
+
+/* --- Responsive Base --- */
+
+@media (max-width: 768px) {
+  .admin-table-container {
+      padding: 1rem;
+      overflow-x: auto;
+  }
+
+  .admin-table-container h2 {
+      font-size: 1.5rem;
+  }
+}
+
