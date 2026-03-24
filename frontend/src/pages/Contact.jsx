@@ -25,7 +25,7 @@ const Contact = () => {
     setResponseMessage('');
 
     try {
-      const response = await axios.post('http://localhost:5000/api/v1/contact', formData);
+      const response = await axios.post('/api/v1/contact', formData);
       if (response.data.success) {
         setResponseMessage('Thank you for your message! We will get back to you soon.');
         setFormData({
