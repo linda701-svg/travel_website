@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams, useNavigate } from 'react-router-dom';
 import "../Style/style.css";
 import "../Style/Tours.css"; // Modern styles
-
+import axios from 'axios';
 const Tours = () => {
   const [tours, setTours] = useState([]);
   const [pagination, setPagination] = useState({});
@@ -22,24 +22,25 @@ const Tours = () => {
     'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
-  useEffect(() => {
-    const fetchTours = async () => {
-      try {
-        const query = new URLSearchParams(searchParams).toString();
-        const response = await fetch(`/api/v1/tours?${query}&page=${currentPage}&limit=${limit}`);
-        const data = await response.json();
-        if (data.success) {
-          setTours(data.data || []);
-          setPagination(data.pagination || {});
-        }
-      } catch (error) {
-        console.error('Error fetching tours:', error);
+
+useEffect(() => {
+  const fetchTours = async () => {
+    try {
+      const query = new URLSearchParams(searchParams).toString();   
+      const response = await axios.get(`/api/v1/tours?${query}&page=${currentPage}&limit=${limit}`);
+      const data = response.data; 
+
+      if (data.success) {
+        setTours(data.data || []);
+        setPagination(data.pagination || {});
       }
-    };
+    } catch (error) {
+      console.error('Error fetching tours:', error);
+    }
+  };
 
-    fetchTours();
-  }, [searchParams, currentPage]);
-
+  fetchTours();
+}, [searchParams, currentPage]);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setSearchCriteria({ ...searchCriteria, [name]: value });
@@ -182,7 +183,7 @@ const Tours = () => {
                       <div className="modern-tour-img-wrapper">
                         <Link to={`/tours/${tour._id}`}>
                           <img
-                            src={tour.image && tour.image.startsWith('http') ? tour.image : `http://localhost:5000${tour.image}`}
+                            src={tour.image && tour.image.startsWith('http') ? tour.image : `https://travel-website-hfqu.onrender.com${tour.image}`}
                             className="modern-tour-img"
                             alt={tour.title}
                           />
